@@ -33,7 +33,6 @@ func bruteForceCalculate(Wc, Fc, Wt, Ft, W1, W2 float64) (fuel1, fuel2, resultRa
 		}
 
 		if math.Abs(Wt - ratio) < math.Abs(Wt - resultRatio) {
-
 			resultRatio = ratio
 			fuel1 = f1
 			fuel2 = f2
