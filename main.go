@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"github.com/gopherjs/gopherjs/js"
 	"math"
 )
@@ -29,10 +28,14 @@ func bruteForceCalculate(Wc, Fc, Wt, Ft, W1, W2 float64) (fuel1, fuel2, resultRa
 		f2 := Ft - Fc - i
 		ratio := (f1*W1 +f2*W2 + Wc*Fc) / (Fc + f1 + f2)
 
+		if ratio == Wt {
+			return f1, f2, ratio
+		}
+
 		if math.Abs(Wt - ratio) < math.Abs(Wt - resultRatio) {
 			resultRatio = ratio
-			fuel1 = i
-			fuel2 = Ft - Fc - i
+			fuel1 = f1
+			fuel2 = f2
 		}
 	}
 
